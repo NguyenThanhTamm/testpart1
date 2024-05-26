@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Account Gmail</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <form id="form">
+      <img id="logo" src="Logo/success.png" />
+      <h3>Địa chỉ email đã được xác minh.</h3>
+      <p>Cảm ơn bạn đã xác minh địa chỉ <span id="emailDisplay" style="font-weight: 600;"></span>đang được liên kết với
+        gmail của bạn.</a>
+      </p>
+      <hr />
+
+    </form>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const emailDisplay = document.getElementById('emailDisplay');
+      const storedEmail = localStorage.getItem('email');
+
+      if (emailDisplay && storedEmail) {
+        emailDisplay.textContent = storedEmail;
+      } else {
+        console.error('Không tìm thấy phần tử #text-gmail p hoặc không có email trong Local Storage.');
+      }
+    });
+  </script>
+</body>
+
+</html>
